@@ -1,73 +1,18 @@
 import React, { Component } from "react";
-import {
-  TextField,
-  Button,
-  FormControl,
-  FormHelperText,
-  InputLabel,
-  Input,
-} from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import HelloWorld from "./HelloWorld";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    "& .MuiTextField-root": {
-      margin: theme.spacing(1),
-      width: "25ch",
-    },
-  },
-}));
+import { BrowserRouter as Router, Route,Switch } from 'react-router-dom'
+import Articles from "./Articles";
+import Comments from "./Comments";
 
 export default class App extends Component {
   render() {
     return (
-      <>
-        <h1>Welcome to our first rails app with react</h1>
-
-        <FormControl>
-          <TextField
-            id="standard-full-width"
-            label="Name"
-            style={{ margin: 8 }}
-            placeholder=""
-            fullWidth
-            margin="normal"
-            InputLabelProps={{
-              shrink: true,
-            }}
-          />
-
-          <TextField
-            id="standard-full-width"
-            label="Company"
-            style={{ margin: 8 }}
-            placeholder=""
-            fullWidth
-            margin="normal"
-            InputLabelProps={{
-              shrink: true,
-            }}
-          />
-
-          <TextField
-            id="standard-full-width"
-            label="Email address"
-            style={{ margin: 8 }}
-            placeholder=""
-            fullWidth
-            margin="normal"
-            InputLabelProps={{
-              shrink: true,
-            }}
-          />
-
-          <br></br>
-          <br></br>
-          <Button variant="contained" color="primary">
-            Submit
-          </Button>
-        </FormControl>
-      </>
+      <Switch>
+        {/* <Route exact path="/" component={HelloWorld} /> */}
+        <Route exact path="/" component={Articles} />
+        <Route exact path="/comments" component={Comments} />
+      </Switch>
     );
   }
 }
